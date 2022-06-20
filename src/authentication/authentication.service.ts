@@ -3,9 +3,17 @@ import { hash as bcryptHash, compare as bcryptCompare } from 'bcrypt';
 import { UsersService } from 'src/users/users.service';
 import { RegisterDto } from './dto/register.dto';
 import { PostgresErrorCodes } from 'src/common/enums/postgres-error-code.enum';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
+import { TokenPayload } from './types/token-payload.types';
+
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
+  ) {}
 
   public async register(registrationData: RegisterDto) {
     const hashedPassword = await bcryptHash(registrationData.password, 10);
@@ -41,6 +49,18 @@ export class AuthenticationService {
         HttpStatus.BAD_REQUEST,
       );
     }
+  }
+
+  public getCookieWithToken(userId: number) {
+    const payload: TokenPayload = { userId };
+    const token = this.jwtService.sign(payload);
+    return `Authentication=${token}; HttpOnly; Path=/; Max-Age=${this.configService.get(
+      'JWT_EXPIRES_IN',
+    )}`;
+  }
+
+  public getCookieForLogout() {
+    return `Authentication=; HttpOnly; Path=/; Max-Age=0`;
   }
 
   private async verifyPassword(
