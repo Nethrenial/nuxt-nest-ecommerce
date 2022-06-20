@@ -8,8 +8,11 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { JwtRefreshTokenStrategy } from './strategies/jwt-refresh-token.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { EmailVerificationModule } from 'src/email-verification/email-verification.module';
+
 @Module({
   imports: [
+    EmailVerificationModule,
     UsersModule,
     PassportModule,
     ConfigModule,

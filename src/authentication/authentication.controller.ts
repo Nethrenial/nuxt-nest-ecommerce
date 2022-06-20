@@ -9,26 +9,36 @@ import {
 } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 import { UsersService } from 'src/users/users.service';
+import { EmailVerificationService } from 'src/email-verification/email-verification.service';
 import { RegisterDto } from './dto/register.dto';
 import { LocalAuthenticationGuard } from './guards/local-authentication.guard';
 import { JwtAuthenticationGuard } from './guards/jwt-authentication.guard';
 import { JwtRefreshGuard } from './guards/jwt-token-refresh.guard';
 import { RequestWithUser } from './types/request-with-user.types';
+import { LoginDto } from './dto/login.dto';
+import { ApiBody } from '@nestjs/swagger';
 
 @Controller('authentication')
 export class AuthenticationController {
   constructor(
     private readonly authenticationService: AuthenticationService,
     private readonly usersService: UsersService,
+    private readonly emailVerificationService: EmailVerificationService,
   ) {}
+
   @Post('register')
   async register(@Body() registrationData: RegisterDto) {
-    return this.authenticationService.register(registrationData);
+    const user = await this.authenticationService.register(registrationData);
+    await this.emailVerificationService.sendVerificationLink(
+      registrationData.email,
+    );
+    return user;
   }
 
   @HttpCode(200)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
+  @ApiBody({ type: LoginDto })
   async logIn(@Req() request: RequestWithUser) {
     const { user } = request;
     const accessTokenCookie =

@@ -67,10 +67,24 @@ export class UsersService {
         ...userData,
         createdAt: new Date(),
         updatedAt: new Date(),
+        roles: ['User'],
       },
     });
     return newUser;
   }
+
+  async markEmailAsConfirmed(email: string) {
+    const user = await this.prisma.user.update({
+      where: {
+        email,
+      },
+      data: {
+        isEmailVerified: true,
+      },
+    });
+    return user;
+  }
+
   async setCurrentRefreshToken(refreshToken: string, id: number) {
     const currentHashedRefreshToken = await bcryptHash(refreshToken, 10);
     await this.prisma.user.update({
