@@ -26,8 +26,8 @@ export class UsersService {
     const newUser = await this.prisma.user.create({
       data: {
         ...userData,
-        // createdAt: new Date(),
-        // updatedAt: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     });
     return newUser;
