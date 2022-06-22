@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["filterJson"]
 }
 
 datasource db {
@@ -8,23 +9,39 @@ datasource db {
 }
 
 enum Role {
-  User
   Admin
-  Moderator
+  User
+  Seller
+}
+
+enum OrderStatus {
+  Created
+  Paid
+  Processing
+  Shipped
+  Delivered
 }
 
 model User {
-  id                        Int           @id @default(autoincrement())
-  email                     String        @unique
-  isEmailVerified           Boolean       @default(false)
+  id                        Int                    @id @default(autoincrement())
+  email                     String                 @unique
+  isEmailVerified           Boolean                @default(false)
   name                      String
   password                  String
-  createdAt                 DateTime      @default(now())
-  updatedAt                 DateTime      @default(now())
+  createdAt                 DateTime               @default(now())
+  updatedAt                 DateTime               @default(now())
   currentHashedRefreshToken String?
   roles                     Role[]
-  stripeCustomerId          String?       @unique
+  stripeCustomerId          String?                @unique
   addresses                 UserAddress[]
+  productReviews            UserProductReview[]
+  shopReviews               UserShopReview[]
+  Shop                      Shop[]
+  ShoppingCart              ShoppingCart[]
+  Order                     Order[]
+  favouriteProducts         UserFavouriteProduct[]
+  favoriteShops             UserFavoriteShop[]
+  message                   Message[]
 }
 
 model UserAddress {
@@ -38,4 +55,190 @@ model UserAddress {
   updatedAt DateTime @default(now())
   User      User?    @relation(fields: [userId], references: [id])
   userId    Int?
+  orders    Order[]
+}
+
+model Shop {
+  id                 Int                   @id @default(autoincrement())
+  name               String                @unique
+  description        String?
+  coverPhoto         String
+  logo               String?
+  isVerifiedBusiness Boolean               @default(false)
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @default(now())
+  contactEmail       String                @unique
+  contactPhone       String                @unique
+  User               User                  @relation(fields: [userId], references: [id])
+  userId             Int
+  physicalAddress    ShopPhysicalAddress[]
+  Product            Product[]
+  reviews            UserShopReview[]
+  shopCoupons        ShopCoupon[]
+  favoriteShops      UserFavoriteShop[]
+  messages           Message[]
+}
+
+model ShopPhysicalAddress {
+  id        Int      @id @default(autoincrement())
+  address   String
+  city      String
+  state     String
+  country   String
+  zip       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Shop      Shop     @relation(fields: [shopId], references: [id])
+  shopId    Int
+}
+
+model ShopCoupon {
+  id             Int       @id @default(autoincrement())
+  code           String    @unique
+  discount       Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now())
+  availableUntil DateTime?
+  minPrice       Float?
+  Shop           Shop      @relation(fields: [shopId], references: [id])
+  shopId         Int
+}
+
+model Product {
+  id                Int                    @id @default(autoincrement())
+  name              String                 @unique
+  sku               String                 @unique
+  description       String
+  images            String[]
+  video             String?
+  price             Float
+  discount          Float?
+  currency          String                 @default("USD")
+  stock             Int                    @default(0)
+  sold              Int                    @default(0)
+  createdAt         DateTime               @default(now())
+  updatedAt         DateTime               @default(now())
+  Shop              Shop                   @relation(fields: [shopId], references: [id])
+  shopId            Int
+  categories        ProductCategory[]
+  userReview        UserProductReview[]
+  ShoppingCart      ShoppingCart?          @relation(fields: [shoppingCartId], references: [id])
+  shoppingCartId    Int?
+  shoppingCartItems ShoppingCartItem[]
+  orderItems        OrderItem[]
+  specifications    Json?
+  favouriteProduct  UserFavouriteProduct[]
+  Message           Message[]
+}
+
+model ProductCategory {
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @default(now())
+  Product    Product[]
+  attributes Json?
+}
+
+model UserProductReview {
+  id        Int      @id @default(autoincrement())
+  rating    Int
+  comment   String
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+}
+
+model UserShopReview {
+  id        Int      @id @default(autoincrement())
+  rating    Int
+  comment   String
+  images    String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Shop      Shop     @relation(fields: [shopId], references: [id])
+  shopId    Int
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+}
+
+model ShoppingCart {
+  id                Int                @id @default(autoincrement())
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @default(now())
+  User              User?              @relation(fields: [userId], references: [id])
+  userId            Int?
+  shoppingCartItems ShoppingCartItem[]
+  products          Product[]
+}
+
+model ShoppingCartItem {
+  id             Int          @id @default(autoincrement())
+  quantity       Int          @default(1)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @default(now())
+  ShoppingCart   ShoppingCart @relation(fields: [shoppingCartId], references: [id])
+  shoppingCartId Int
+  Product        Product      @relation(fields: [productId], references: [id])
+  productId      Int
+}
+
+model Order {
+  id                Int         @id @default(autoincrement())
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @default(now())
+  status            OrderStatus @default(Created)
+  shippingAddress   UserAddress @relation(fields: [shippingAddressId], references: [id])
+  shippingAddressId Int
+  User              User?       @relation(fields: [userId], references: [id])
+  userId            Int?
+  orderItems        OrderItem[]
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  quantity  Int      @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Order     Order    @relation(fields: [orderId], references: [id])
+  orderId   Int
+  Product   Product  @relation(fields: [productId], references: [id])
+  productId Int
+}
+
+model UserFavouriteProduct {
+  id        Int     @id @default(autoincrement())
+  User      User?   @relation(fields: [userId], references: [id])
+  userId    Int?
+  Product   Product @relation(fields: [productId], references: [id])
+  productId Int
+}
+
+model UserFavoriteShop {
+  id     Int   @id @default(autoincrement())
+  User   User? @relation(fields: [userId], references: [id])
+  userId Int?
+  Shop   Shop  @relation(fields: [shopId], references: [id])
+  shopId Int
+}
+
+model Message {
+  id                Int       @id @default(autoincrement())
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @default(now())
+  User              User      @relation(fields: [userId], references: [id])
+  Shop              Shop      @relation(fields: [shopId], references: [id])
+  userId            Int
+  shopId            Int
+  senderId          Int
+  Product           Product?  @relation(fields: [attachedProductId], references: [id])
+  attachedProductId Int?
+  seen              Boolean   @default(false)
+  replyOf   Message?   @relation("MessageReplies",  fields: [replyOfId], references: [id])
+  replyOfId   Int?
+  replies  Message[]  @relation("MessageReplies")
 }

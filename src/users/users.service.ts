@@ -17,6 +17,11 @@ export class UsersService {
     this.prisma = new PrismaClient();
   }
 
+  /**
+   * Adds a new address to the user
+   * @param id ID of the desired user
+   * @param addressData Address data DTO
+   */
   async addUserAddress(
     id: number,
     { address, city, state, zip, country }: AddUserAddressDto,
@@ -49,6 +54,12 @@ export class UsersService {
     return updatedUser;
   }
 
+  /**
+   * Updates the given user address
+   * @param id ID of the desired user
+   * @param addressId ID of the desired address
+   * @param addressData Address data DTO
+   */
   async updateUserAddress(
     id: number,
     addressId: number,
@@ -80,6 +91,11 @@ export class UsersService {
     return user;
   }
 
+  /**
+   * Deletes the given user address
+   * @param id ID of the desired user
+   * @param addressId ID of the desired address
+   */
   async removeUserAddress(id: number, addressId: number) {
     await this.prisma.userAddress.deleteMany({
       where: {
