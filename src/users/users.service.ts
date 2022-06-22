@@ -1,7 +1,10 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { PrismaClient, User } from '@prisma/client';
-import { CreateUserDto } from './dto/create-user.dto';
+import { PrismaClient } from '@prisma/client';
 import { hash as bcryptHash, compare as bcryptCompare } from 'bcrypt';
+import { CreateUserDto } from './dto/create-user.dto';
+import { AddUserAddressDto } from './dto/add-user-address.dto';
+import { UpdateUserAddressDto } from './dto/update-user-address.dto';
+import { StripePaymentsService } from 'src/stripe-payments/stripe-payments.service';
 
 @Injectable()
 export class UsersService {
@@ -10,8 +13,91 @@ export class UsersService {
    */
   prisma: PrismaClient;
 
-  constructor() {
+  constructor(private readonly stripePaymentsService: StripePaymentsService) {
     this.prisma = new PrismaClient();
+  }
+
+  async addUserAddress(
+    id: number,
+    { address, city, state, zip, country }: AddUserAddressDto,
+  ) {
+    const newAddress = await this.prisma.userAddress.create({
+      data: {
+        userId: id,
+        address,
+        city,
+        state,
+        zip,
+        country,
+      },
+    });
+
+    const updatedUser = await this.prisma.user.update({
+      where: { id },
+      data: {
+        addresses: {
+          connect: {
+            id: newAddress.id,
+          },
+        },
+      },
+      include: {
+        addresses: true,
+      },
+    });
+
+    return updatedUser;
+  }
+
+  async updateUserAddress(
+    id: number,
+    addressId: number,
+    { address, city, state, zip, country }: UpdateUserAddressDto,
+  ) {
+    await this.prisma.userAddress.updateMany({
+      where: {
+        id: addressId,
+        userId: id,
+      },
+      data: {
+        address,
+        city,
+        state,
+        zip,
+        country,
+      },
+    });
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id,
+      },
+
+      include: {
+        addresses: true,
+      },
+    });
+
+    return user;
+  }
+
+  async removeUserAddress(id: number, addressId: number) {
+    await this.prisma.userAddress.deleteMany({
+      where: {
+        id: addressId,
+      },
+    });
+
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id,
+      },
+
+      include: {
+        addresses: true,
+      },
+    });
+
+    return user;
   }
 
   /**
@@ -85,15 +171,18 @@ export class UsersService {
    * Creates a new user
    * @param userData user data
    */
-  async create(userData: CreateUserDto) {
+  async create({ email, name, password }: CreateUserDto) {
     const newUser = await this.prisma.user.create({
       data: {
-        ...userData,
+        email,
+        name,
+        password,
         createdAt: new Date(),
         updatedAt: new Date(),
         roles: ['User'],
       },
     });
+    await this.stripePaymentsService.createCustomer(name, email);
     return newUser;
   }
 

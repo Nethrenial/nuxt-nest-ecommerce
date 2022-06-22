@@ -14,13 +14,28 @@ enum Role {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  isEmailVerified Boolean @default(false)
-  name String 
-  password String
+  id                        Int           @id @default(autoincrement())
+  email                     String        @unique
+  isEmailVerified           Boolean       @default(false)
+  name                      String
+  password                  String
+  createdAt                 DateTime      @default(now())
+  updatedAt                 DateTime      @default(now())
+  currentHashedRefreshToken String?
+  roles                     Role[]
+  stripeCustomerId          String?       @unique
+  addresses                 UserAddress[]
+}
+
+model UserAddress {
+  id        Int      @id @default(autoincrement())
+  address   String
+  city      String
+  state     String
+  country   String
+  zip       String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
-  currentHashedRefreshToken String? 
-  roles Role[]
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
 }

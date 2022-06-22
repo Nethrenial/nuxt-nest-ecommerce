@@ -5,6 +5,7 @@ import * as Joi from '@hapi/joi';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { EmailModule } from './email/email.module';
 import { EmailVerificationModule } from './email-verification/email-verification.module';
+import { StripePaymentsModule } from './stripe-payments/stripe-payments.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { EmailVerificationModule } from './email-verification/email-verification
     }),
     EmailModule,
     EmailVerificationModule,
+    StripePaymentsModule,
   ],
   controllers: [],
   providers: [],
