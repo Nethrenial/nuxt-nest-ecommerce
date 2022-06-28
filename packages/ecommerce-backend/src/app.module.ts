@@ -7,6 +7,7 @@ import { EmailModule } from './email/email.module';
 import { EmailVerificationModule } from './email-verification/email-verification.module';
 import { StripePaymentsModule } from './stripe-payments/stripe-payments.module';
 import { ShopsModule } from './shops/shops.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { ShopsModule } from './shops/shops.module';
     EmailVerificationModule,
     StripePaymentsModule,
     ShopsModule,
+    ProductsModule,
   ],
   controllers: [],
   providers: [],
