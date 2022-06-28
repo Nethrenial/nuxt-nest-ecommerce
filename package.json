@@ -2,9 +2,21 @@
   "name": "nuxt-nest-e-commerce",
   "private": true,
   "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^8.0.0",
     "lerna": "^5.1.6"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "version": "independent",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
