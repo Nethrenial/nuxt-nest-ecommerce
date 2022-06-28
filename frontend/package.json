@@ -10,7 +10,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "0.25.2",
     "@iconify-json/carbon": "1.1.5",
-    "@iconify-json/twemoji": "1.1.4",
+    "@iconify-json/twemoji": "1.1.5",
     "@nuxtjs/color-mode": "3.1.4",
     "@pinia/nuxt": "0.1.9",
     "@unocss/nuxt": "0.41.1",
