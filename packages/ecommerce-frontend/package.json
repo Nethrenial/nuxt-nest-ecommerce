@@ -2,14 +2,13 @@
   "name": "@ecommerce/frontend",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
     "lint": "eslint --fix .",
-    "precommit": "echo 'Committing changes in nuxt-nest-e-commerce-frontend...'",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "precommit": "echo 'Committing changes in nuxt-nest-e-commerce-frontend...'"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.25.2",

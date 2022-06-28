@@ -1,6 +1,6 @@
 {
   "name": "@ecommerce/backend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "author": "",
   "private": true,
@@ -20,8 +20,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "precommit": "echo 'Committing changes in nuxt-nest-e-commerce-frontend...'",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "precommit": "echo 'Committing changes in nuxt-nest-e-commerce-frontend"
   },
   "dependencies": {
     "@hapi/joi": "17.1.1",
