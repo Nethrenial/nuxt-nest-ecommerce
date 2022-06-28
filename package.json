@@ -2,7 +2,6 @@
   "name": "ecommerce",
   "private": true,
   "devDependencies": {
-    "auto-changelog": "^2.4.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "husky": "^8.0.0",
