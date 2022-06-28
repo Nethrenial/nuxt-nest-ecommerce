@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >UsersService</li>
+  <li >UsersAddressesService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/users/services/users.service.ts</code>
+            <code>src/users/services/users-addresses.service.ts</code>
         </p>
 
 
@@ -94,31 +94,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#create" >create</a>
+                                <a href="#addUserAddress" >addUserAddress</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getByEmail" >getByEmail</a>
+                                <a href="#getUserAddressById" >getUserAddressById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getById" >getById</a>
+                                <a href="#getUserAddresses" >getUserAddresses</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserIfRefreshTokenMatches" >getUserIfRefreshTokenMatches</a>
+                                <a href="#removeUserAddress" >removeUserAddress</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#markEmailAsConfirmed" >markEmailAsConfirmed</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#removeRefreshToken" >removeRefreshToken</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#setCurrentRefreshToken" >setCurrentRefreshToken</a>
+                                <a href="#updateUserAddress" >updateUserAddress</a>
                             </li>
                         </ul>
                     </td>
@@ -138,45 +130,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(stripePaymentsService: <a href="../injectables/StripePaymentsService.html" target="_self">StripePaymentsService</a>)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/users/services/users.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/users/services/users-addresses.service.ts:11</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>stripePaymentsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/StripePaymentsService.html" target="_self" >StripePaymentsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -190,105 +152,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
+                    <a name="addUserAddress"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>addUserAddress</b></span>
+                        <a href="#addUserAddress"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(undefined: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto</a>)</code>
+                    <code>addUserAddress(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, undefined: <a href="../classes/AddUserAddressDto.html" target="_self">AddUserAddressDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/users/services/users.service.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/users/services/users-addresses.service.ts:48</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Creates a new user</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                                <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getByEmail"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getByEmail</b></span>
-                        <a href="#getByEmail"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getByEmail(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/users/services/users.service.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Returns the user if email exists, otherwise throws an 404</p>
+                    <div class="io-description"><p>Adds a new address to the user</p>
 </div>
 
                     <div class="io-description">
@@ -304,428 +194,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>email</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>email address of the desired user</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getById"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getById</b></span>
-                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/users/services/users.service.ts:41</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Returns the user if id exists, otherwise throws an 404</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>id of the desired user</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getUserIfRefreshTokenMatches"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getUserIfRefreshTokenMatches</b></span>
-                        <a href="#getUserIfRefreshTokenMatches"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserIfRefreshTokenMatches(refreshToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">src/users/services/users.service.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Returns the user if refresh token matches.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>refreshToken</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Refresh token to be compared</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Desired user&#39;s id</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="markEmailAsConfirmed"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>markEmailAsConfirmed</b></span>
-                        <a href="#markEmailAsConfirmed"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>markEmailAsConfirmed(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">src/users/services/users.service.ts:110</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Marks a user&#39;s email as verified</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>email</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>The verified email</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="removeRefreshToken"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>removeRefreshToken</b></span>
-                        <a href="#removeRefreshToken"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeRefreshToken(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">src/users/services/users.service.ts:76</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Removes the user&#39;s refresh token</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>id</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Desired user&#39;s id</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setCurrentRefreshToken"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>setCurrentRefreshToken</b></span>
-                        <a href="#setCurrentRefreshToken"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setCurrentRefreshToken(refreshToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">src/users/services/users.service.ts:127</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Sets the refresh token after hashing to the given user</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>refreshToken</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Refresh token to be set</p>
-
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td>id</td>
                                     <td>
@@ -742,13 +210,383 @@
 
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                                <code><a href="../classes/AddUserAddressDto.html" target="_self" >AddUserAddressDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserAddressById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserAddressById</b></span>
+                        <a href="#getUserAddressById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserAddressById(addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/users/services/users-addresses.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get user address by the given id</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>addressId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID of the desired address</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserAddresses"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUserAddresses</b></span>
+                        <a href="#getUserAddresses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserAddresses(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">src/users/services/users-addresses.service.ts:21</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get all the saved addresses of the user</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Desired user&#39;s id</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeUserAddress"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeUserAddress</b></span>
+                        <a href="#removeUserAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeUserAddress(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/users/services/users-addresses.service.ts:115</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deletes the given user address</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID of the desired user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>addressId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID of the desired address</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserAddress"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateUserAddress</b></span>
+                        <a href="#updateUserAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUserAddress(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, undefined: <a href="../classes/UpdateUserAddressDto.html" target="_self">UpdateUserAddressDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/users/services/users-addresses.service.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates the given user address</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID of the desired user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>addressId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID of the desired address</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                                <code><a href="../classes/UpdateUserAddressDto.html" target="_self" >UpdateUserAddressDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -783,7 +621,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/users/services/users.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/users/services/users-addresses.service.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -802,142 +640,138 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, HttpException, HttpStatus } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { PrismaClient } from &#x27;@prisma/client&#x27;;
-import { hash as bcryptHash, compare as bcryptCompare } from &#x27;bcrypt&#x27;;
-import { CreateUserDto } from &#x27;../dto/create-user.dto&#x27;;
 import { AddUserAddressDto } from &#x27;../dto/add-user-address.dto&#x27;;
 import { UpdateUserAddressDto } from &#x27;../dto/update-user-address.dto&#x27;;
-import { StripePaymentsService } from &#x27;src/stripe-payments/stripe-payments.service&#x27;;
 
 @Injectable()
-export class UsersService {
+export class UsersAddressesService {
   /**
    * The prisma client
    */
   prisma: PrismaClient;
 
-  constructor(private readonly stripePaymentsService: StripePaymentsService) {
+  constructor() {
     this.prisma &#x3D; new PrismaClient();
   }
 
   /**
-   * Returns the user if email exists, otherwise throws an 404
-   * @param email email address of the desired user
-   */
-  async getByEmail(email: string) {
-    const user &#x3D; await this.prisma.user.findUnique({
-      where: {
-        email,
-      },
-    });
-    if (user) return user;
-    throw new HttpException(
-      &#x27;User with this email does not exist&#x27;,
-      HttpStatus.NOT_FOUND,
-    );
-  }
-
-  /**
-   * Returns the user if id exists, otherwise throws an 404
-   * @param id id of the desired user
-   */
-  async getById(id: number) {
-    const user &#x3D; await this.prisma.user.findUnique({
-      where: {
-        id,
-      },
-    });
-    if (user) return user;
-    throw new HttpException(
-      &#x27;User with this id does not exist&#x27;,
-      HttpStatus.NOT_FOUND,
-    );
-  }
-
-  /**
-   * Returns the user if refresh token matches.
-   * @param refreshToken Refresh token to be compared
-   * @param userId Desired user&#x27;s id
-   */
-  async getUserIfRefreshTokenMatches(refreshToken: string, userId: number) {
-    const user &#x3D; await this.getById(userId);
-
-    const isRefreshTokenMatching &#x3D; await bcryptCompare(
-      refreshToken,
-      user.currentHashedRefreshToken,
-    );
-
-    if (isRefreshTokenMatching) {
-      return user;
-    }
-  }
-
-  /**
-   * Removes the user&#x27;s refresh token
+   * Get all the saved addresses of the user
    * @param id Desired user&#x27;s id
    */
-  async removeRefreshToken(id: number) {
-    return this.prisma.user.update({
+  async getUserAddresses(id: number) {
+    const addresses &#x3D; await this.prisma.userAddress.findMany({
+      where: {
+        userId: id,
+      },
+    });
+    return addresses;
+  }
+
+  /**
+   * Get user address by the given id
+   * @param addressId ID of the desired address
+   */
+  async getUserAddressById(addressId: number) {
+    const address &#x3D; await this.prisma.userAddress.findUnique({
+      where: {
+        id: addressId,
+      },
+    });
+    return address;
+  }
+
+  /**
+   * Adds a new address to the user
+   * @param id ID of the desired user
+   * @param addressData Address data DTO
+   */
+  async addUserAddress(
+    id: number,
+    { address, city, state, zip, country }: AddUserAddressDto,
+  ) {
+    const updatedUser &#x3D; await this.prisma.user.update({
+      where: { id },
+      data: {
+        addresses: {
+          create: {
+            address,
+            city,
+            state,
+            zip,
+            country,
+          },
+        },
+      },
+      include: {
+        addresses: true,
+      },
+    });
+
+    return updatedUser;
+  }
+
+  /**
+   * Updates the given user address
+   * @param id ID of the desired user
+   * @param addressId ID of the desired address
+   * @param addressData Address data DTO
+   */
+  async updateUserAddress(
+    id: number,
+    addressId: number,
+    { address, city, state, zip, country }: UpdateUserAddressDto,
+  ) {
+    await this.prisma.userAddress.updateMany({
+      where: {
+        id: addressId,
+        userId: id,
+      },
+      data: {
+        address,
+        city,
+        state,
+        zip,
+        country,
+      },
+    });
+    const user &#x3D; await this.prisma.user.findUnique({
       where: {
         id,
       },
-      data: {
-        currentHashedRefreshToken: null,
-      },
-    });
-  }
 
-  /**
-   * Creates a new user
-   * @param userData user data
-   */
-  async create({ email, name, password }: CreateUserDto) {
-    const newUser &#x3D; await this.prisma.user.create({
-      data: {
-        email,
-        name,
-        password,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        roles: [&#x27;User&#x27;],
+      include: {
+        addresses: true,
       },
     });
-    await this.stripePaymentsService.createCustomer(name, email);
-    return newUser;
-  }
 
-  /**
-   * Marks a user&#x27;s email as verified
-   * @param email The verified email
-   */
-  async markEmailAsConfirmed(email: string) {
-    const user &#x3D; await this.prisma.user.update({
-      where: {
-        email,
-      },
-      data: {
-        isEmailVerified: true,
-      },
-    });
     return user;
   }
 
   /**
-   * Sets the refresh token after hashing to the given user
-   * @param refreshToken Refresh token to be set
+   * Deletes the given user address
    * @param id ID of the desired user
+   * @param addressId ID of the desired address
    */
-  async setCurrentRefreshToken(refreshToken: string, id: number) {
-    const currentHashedRefreshToken &#x3D; await bcryptHash(refreshToken, 10);
-    await this.prisma.user.update({
+  async removeUserAddress(id: number, addressId: number) {
+    await this.prisma.userAddress.deleteMany({
+      where: {
+        id: addressId,
+      },
+    });
+
+    const user &#x3D; await this.prisma.user.findUnique({
       where: {
         id,
       },
-      data: {
-        currentHashedRefreshToken,
+
+      include: {
+        addresses: true,
       },
     });
+
+    return user;
   }
 }
 </code></pre>
@@ -983,7 +817,7 @@ export class UsersService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'UsersService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersAddressesService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

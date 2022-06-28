@@ -37,7 +37,7 @@
 
 <ol class="breadcrumb">
   <li>Controllers</li>
-  <li >AuthenticationController</li>
+  <li >ShopsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,14 +55,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/authentication/authentication.controller.ts</code>
+            <code>src/shops/shops.controller.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>authentication</code>
+                <code>shops</code>
             </p>
 
 
@@ -84,22 +84,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#authenticate" >authenticate</a>
+                                <a href="#approveShopOpenRequests" >approveShopOpenRequests</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#logIn" >logIn</a>
+                                <a href="#create" >create</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#logOut" >logOut</a>
+                                <a href="#getAllShopOpenRequests" >getAllShopOpenRequests</a>
                             </li>
                             <li>
-                                <a href="#refresh" >refresh</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#register" >register</a>
+                                <a href="#getUserShopOpenRequest" >getUserShopOpenRequest</a>
                             </li>
                         </ul>
                     </td>
@@ -122,16 +116,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="authenticate"></a>
+                    <a name="approveShopOpenRequests"></a>
                     <span class="name">
-                        <span ><b>authenticate</b></span>
-                        <a href="#authenticate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>approveShopOpenRequests</b></span>
+                        <a href="#approveShopOpenRequests"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>authenticate(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+<code>approveShopOpenRequests(requestId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -139,14 +133,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@UseGuards(JwtAuthenticationGuard)<br />@Get()<br /></code>
+                    <code>@UseGuards(undefined)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br />@Post(&#x27;/open-requests/:requestId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/shops/shops.controller.ts:53</a></div>
                 </td>
             </tr>
 
@@ -167,9 +161,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
+                                    <td>requestId</td>
                                     <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -198,18 +192,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="logIn"></a>
+                    <a name="create"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>logIn</b></span>
-                        <a href="#logIn"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logIn(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+<code>create(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, data: <a href="../classes/ShopOpenRequestDto.html" target="_self">ShopOpenRequestDto</a>)</code>
                 </td>
             </tr>
 
@@ -217,246 +209,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@HttpCode(200)<br />@UseGuards(LocalAuthenticationGuard)<br />@Post(&#x27;login&#x27;)<br />@ApiBody({type: LoginDto})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:42</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>request</td>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logOut"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>logOut</b></span>
-                        <a href="#logOut"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logOut(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@UseGuards(JwtAuthenticationGuard)<br />@HttpCode(200)<br />@Post(&#x27;logout&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:74</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>request</td>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="refresh"></a>
-                    <span class="name">
-                        <span ><b>refresh</b></span>
-                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>refresh(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@UseGuards(JwtRefreshGuard)<br />@Get(&#x27;refresh&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:63</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>request</td>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="register"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>register</b></span>
-                        <a href="#register"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>register(registrationData: <a href="../classes/RegisterDto.html" target="_self">RegisterDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post(&#x27;register&#x27;)<br /></code>
+                    <code>@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br />@FormDataRequest()<br />@Post(&#x27;/open-requests&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:30</a></div>
+                            class="link-to-prism">src/shops/shops.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -477,9 +237,20 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>registrationData</td>
                                     <td>
-                                                <code><a href="../classes/RegisterDto.html" target="_self" >RegisterDto</a></code>
+                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/ShopOpenRequestDto.html" target="_self" >ShopOpenRequestDto</a></code>
                                     </td>
 
                                     <td>
@@ -494,7 +265,126 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllShopOpenRequests"></a>
+                    <span class="name">
+                        <span ><b>getAllShopOpenRequests</b></span>
+                        <a href="#getAllShopOpenRequests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllShopOpenRequests()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(undefined)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br />@Get(&#x27;/open-requests/all&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/shops/shops.controller.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserShopOpenRequest"></a>
+                    <span class="name">
+                        <span ><b>getUserShopOpenRequest</b></span>
+                        <a href="#getUserShopOpenRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserShopOpenRequest(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br />@Get(&#x27;/open-requests&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/shops/shops.controller.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -510,92 +400,58 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Controller,
-  Body,
-  Req,
-  HttpCode,
-  Post,
-  UseGuards,
   Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  Req,
+  ParseIntPipe,
 } from &#x27;@nestjs/common&#x27;;
-import { AuthenticationService } from &#x27;./authentication.service&#x27;;
-import { UsersService } from &#x27;src/users/services&#x27;;
-import { EmailVerificationService } from &#x27;src/email-verification/email-verification.service&#x27;;
-import { RegisterDto } from &#x27;./dto/register.dto&#x27;;
-import { LocalAuthenticationGuard } from &#x27;./guards/local-authentication.guard&#x27;;
-import { JwtAuthenticationGuard } from &#x27;./guards/jwt-authentication.guard&#x27;;
-import { JwtRefreshGuard } from &#x27;./guards/jwt-token-refresh.guard&#x27;;
-import { RequestWithUser } from &#x27;./types/request-with-user.types&#x27;;
-import { LoginDto } from &#x27;./dto/login.dto&#x27;;
-import { ApiBody } from &#x27;@nestjs/swagger&#x27;;
+import { FormDataRequest } from &#x27;nestjs-form-data&#x27;;
+import { EmailConfirmationGuard } from &#x27;src/authentication/guards/email-confirmation.guard&#x27;;
+import { JwtAuthenticationGuard } from &#x27;src/authentication/guards/jwt-authentication.guard&#x27;;
+import { RoleGuard } from &#x27;src/authentication/guards/role.guard&#x27;;
+import { RequestWithUser } from &#x27;src/authentication/types/request-with-user.types&#x27;;
+import { ShopsService } from &#x27;./shops.service&#x27;;
+import { CreateShopDto } from &#x27;./dto/create-shop.dto&#x27;;
+import { UpdateShopDto } from &#x27;./dto/update-shop.dto&#x27;;
+import { ShopOpenRequestDto } from &#x27;./dto/shop-open-request.dto&#x27;;
 
-@Controller(&#x27;authentication&#x27;)
-export class AuthenticationController {
-  constructor(
-    private readonly authenticationService: AuthenticationService,
-    private readonly usersService: UsersService,
-    private readonly emailVerificationService: EmailVerificationService,
-  ) {}
-
-  @Post(&#x27;register&#x27;)
-  async register(@Body() registrationData: RegisterDto) {
-    const user &#x3D; await this.authenticationService.register(registrationData);
-    await this.emailVerificationService.sendVerificationLink(
-      registrationData.email,
-    );
-    return user;
-  }
-
-  @HttpCode(200)
-  @UseGuards(LocalAuthenticationGuard)
-  @Post(&#x27;login&#x27;)
-  @ApiBody({ type: LoginDto })
-  async logIn(@Req() request: RequestWithUser) {
-    const { user } &#x3D; request;
-    const accessTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtAccessToken(user.id);
-    const refreshTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtRefreshToken(user.id);
-    await this.usersService.setCurrentRefreshToken(
-      refreshTokenCookie.token,
-      user.id,
-    );
-
-    request.res.setHeader(&#x27;Set-Cookie&#x27;, [
-      accessTokenCookie,
-      refreshTokenCookie.cookie,
-    ]);
-    user.password &#x3D; undefined;
-    return user;
-  }
-
-  @UseGuards(JwtRefreshGuard)
-  @Get(&#x27;refresh&#x27;)
-  refresh(@Req() request: RequestWithUser) {
-    const accessTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtAccessToken(request.user.id);
-
-    request.res.setHeader(&#x27;Set-Cookie&#x27;, accessTokenCookie);
-    return request.user;
-  }
-
+@Controller(&#x27;shops&#x27;)
+export class ShopsController {
+  constructor(private readonly shopsService: ShopsService) {}
+  @UseGuards(EmailConfirmationGuard)
   @UseGuards(JwtAuthenticationGuard)
-  @HttpCode(200)
-  @Post(&#x27;logout&#x27;)
-  async logOut(@Req() request: RequestWithUser) {
-    await this.usersService.removeRefreshToken(request.user.id);
-
-    request.res.setHeader(
-      &#x27;Set-Cookie&#x27;,
-      this.authenticationService.getCookiesForLogOut(),
-    );
+  @FormDataRequest()
+  @Post(&#x27;/open-requests&#x27;)
+  create(@Req() { user }: RequestWithUser, @Body() data: ShopOpenRequestDto) {
+    return this.shopsService.sendAShopOpenRequest(user.id, data);
   }
 
+  @UseGuards(RoleGuard(&#x27;Admin&#x27;))
+  @UseGuards(EmailConfirmationGuard)
   @UseGuards(JwtAuthenticationGuard)
-  @Get()
-  authenticate(@Req() request: RequestWithUser) {
-    const user &#x3D; request.user;
-    user.password &#x3D; undefined;
-    return user;
+  @Get(&#x27;/open-requests/all&#x27;)
+  getAllShopOpenRequests() {
+    return this.shopsService.getAllShopOpenRequests();
+  }
+
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  @Get(&#x27;/open-requests&#x27;)
+  getUserShopOpenRequest(@Req() { user }: RequestWithUser) {
+    return this.shopsService.getUserShopOpenRequest(user.id);
+  }
+
+  @UseGuards(RoleGuard(&#x27;Admin&#x27;))
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  @Post(&#x27;/open-requests/:requestId&#x27;)
+  approveShopOpenRequests(@Param(&#x27;requestId&#x27;, ParseIntPipe) requestId: number) {
+    return this.shopsService.approveShopOpenRequest(requestId);
   }
 }
 </code></pre>
@@ -643,7 +499,7 @@ export class AuthenticationController {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationController.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ShopsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

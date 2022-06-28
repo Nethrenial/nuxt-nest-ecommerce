@@ -37,7 +37,7 @@
 
 <ol class="breadcrumb">
   <li>Controllers</li>
-  <li >AuthenticationController</li>
+  <li >UsersAddressesController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,14 +55,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/authentication/authentication.controller.ts</code>
+            <code>src/users/controllers/users-addresses.controller.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>authentication</code>
+                <code>users/addresses</code>
             </p>
 
 
@@ -84,22 +84,24 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#authenticate" >authenticate</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#addUserAddress" >addUserAddress</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#logIn" >logIn</a>
+                                <a href="#getAllUserAddresses" >getAllUserAddresses</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#logOut" >logOut</a>
-                            </li>
-                            <li>
-                                <a href="#refresh" >refresh</a>
+                                <a href="#getUserAddressById" >getUserAddressById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#register" >register</a>
+                                <a href="#removeUserAddress" >removeUserAddress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUserAddress" >updateUserAddress</a>
                             </li>
                         </ul>
                     </td>
@@ -122,16 +124,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="authenticate"></a>
+                    <a name="addUserAddress"></a>
                     <span class="name">
-                        <span ><b>authenticate</b></span>
-                        <a href="#authenticate"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>addUserAddress</b></span>
+                        <a href="#addUserAddress"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>authenticate(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressData: <a href="../classes/AddUserAddressDto.html" target="_self">AddUserAddressDto</a>)</code>
                 </td>
             </tr>
 
@@ -139,14 +143,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@UseGuards(JwtAuthenticationGuard)<br />@Get()<br /></code>
+                    <code>@Post()<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/users/controllers/users-addresses.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -167,9 +171,20 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
                                     <td>
                                                 <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>addressData</td>
+                                    <td>
+                                                <code><a href="../classes/AddUserAddressDto.html" target="_self" >AddUserAddressDto</a></code>
                                     </td>
 
                                     <td>
@@ -184,7 +199,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -198,18 +213,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="logIn"></a>
+                    <a name="getAllUserAddresses"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>logIn</b></span>
-                        <a href="#logIn"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getAllUserAddresses</b></span>
+                        <a href="#getAllUserAddresses"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logIn(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+                    <code>getAllUserAddresses(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
                 </td>
             </tr>
 
@@ -217,14 +232,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@HttpCode(200)<br />@UseGuards(LocalAuthenticationGuard)<br />@Post(&#x27;login&#x27;)<br />@ApiBody({type: LoginDto})<br /></code>
+                    <code>@Get()<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/users/controllers/users-addresses.controller.ts:27</a></div>
                 </td>
             </tr>
 
@@ -245,7 +260,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
                                     <td>
                                                 <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
                                     </td>
@@ -276,18 +290,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="logOut"></a>
+                    <a name="getUserAddressById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>logOut</b></span>
-                        <a href="#logOut"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getUserAddressById</b></span>
+                        <a href="#getUserAddressById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>logOut(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+                    <code>getUserAddressById(addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -295,14 +309,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@UseGuards(JwtAuthenticationGuard)<br />@HttpCode(200)<br />@Post(&#x27;logout&#x27;)<br /></code>
+                    <code>@Get(&#x27;/:addressId&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/users/controllers/users-addresses.controller.ts:34</a></div>
                 </td>
             </tr>
 
@@ -323,9 +337,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
+                                    <td>addressId</td>
                                     <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -340,7 +354,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -354,16 +368,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="refresh"></a>
+                    <a name="removeUserAddress"></a>
                     <span class="name">
-                        <span ><b>refresh</b></span>
-                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>removeUserAddress</b></span>
+                        <a href="#removeUserAddress"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>refresh(request: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -371,14 +387,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@UseGuards(JwtRefreshGuard)<br />@Get(&#x27;refresh&#x27;)<br /></code>
+                    <code>@Delete(&#x27;/:addressId&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/users/controllers/users-addresses.controller.ts:68</a></div>
                 </td>
             </tr>
 
@@ -399,9 +415,20 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>request</td>
                                     <td>
                                                 <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>addressId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -416,7 +443,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -430,18 +457,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="register"></a>
+                    <a name="updateUserAddress"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>register</b></span>
-                        <a href="#register"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateUserAddress</b></span>
+                        <a href="#updateUserAddress"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>register(registrationData: <a href="../classes/RegisterDto.html" target="_self">RegisterDto</a>)</code>
+                    <code>updateUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, addressData: <a href="../classes/UpdateUserAddressDto.html" target="_self">UpdateUserAddressDto</a>)</code>
                 </td>
             </tr>
 
@@ -449,14 +476,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;register&#x27;)<br /></code>
+                    <code>@Patch(&#x27;/:addressId&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/authentication/authentication.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/users/controllers/users-addresses.controller.ts:53</a></div>
                 </td>
             </tr>
 
@@ -477,9 +504,32 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>registrationData</td>
                                     <td>
-                                                <code><a href="../classes/RegisterDto.html" target="_self" >RegisterDto</a></code>
+                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>addressId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>addressData</td>
+                                    <td>
+                                                <code><a href="../classes/UpdateUserAddressDto.html" target="_self" >UpdateUserAddressDto</a></code>
                                     </td>
 
                                     <td>
@@ -510,92 +560,76 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Controller,
+  Get,
+  Post,
+  Delete,
+  UseGuards,
   Body,
   Req,
-  HttpCode,
-  Post,
-  UseGuards,
-  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
 } from &#x27;@nestjs/common&#x27;;
-import { AuthenticationService } from &#x27;./authentication.service&#x27;;
-import { UsersService } from &#x27;src/users/services&#x27;;
-import { EmailVerificationService } from &#x27;src/email-verification/email-verification.service&#x27;;
-import { RegisterDto } from &#x27;./dto/register.dto&#x27;;
-import { LocalAuthenticationGuard } from &#x27;./guards/local-authentication.guard&#x27;;
-import { JwtAuthenticationGuard } from &#x27;./guards/jwt-authentication.guard&#x27;;
-import { JwtRefreshGuard } from &#x27;./guards/jwt-token-refresh.guard&#x27;;
-import { RequestWithUser } from &#x27;./types/request-with-user.types&#x27;;
-import { LoginDto } from &#x27;./dto/login.dto&#x27;;
-import { ApiBody } from &#x27;@nestjs/swagger&#x27;;
+import { UsersAddressesService } from &#x27;../services&#x27;;
+import { JwtAuthenticationGuard } from &#x27;src/authentication/guards/jwt-authentication.guard&#x27;;
+import { EmailConfirmationGuard } from &#x27;src/authentication/guards/email-confirmation.guard&#x27;;
+import { RequestWithUser } from &#x27;src/authentication/types/request-with-user.types&#x27;;
+import { AddUserAddressDto } from &#x27;../dto/add-user-address.dto&#x27;;
+import { UpdateUserAddressDto } from &#x27;../dto/update-user-address.dto&#x27;;
 
-@Controller(&#x27;authentication&#x27;)
-export class AuthenticationController {
-  constructor(
-    private readonly authenticationService: AuthenticationService,
-    private readonly usersService: UsersService,
-    private readonly emailVerificationService: EmailVerificationService,
-  ) {}
+@Controller(&#x27;users/addresses&#x27;)
+export class UsersAddressesController {
+  constructor(private readonly usersAddressesService: UsersAddressesService) {}
 
-  @Post(&#x27;register&#x27;)
-  async register(@Body() registrationData: RegisterDto) {
-    const user &#x3D; await this.authenticationService.register(registrationData);
-    await this.emailVerificationService.sendVerificationLink(
-      registrationData.email,
-    );
-    return user;
-  }
-
-  @HttpCode(200)
-  @UseGuards(LocalAuthenticationGuard)
-  @Post(&#x27;login&#x27;)
-  @ApiBody({ type: LoginDto })
-  async logIn(@Req() request: RequestWithUser) {
-    const { user } &#x3D; request;
-    const accessTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtAccessToken(user.id);
-    const refreshTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtRefreshToken(user.id);
-    await this.usersService.setCurrentRefreshToken(
-      refreshTokenCookie.token,
-      user.id,
-    );
-
-    request.res.setHeader(&#x27;Set-Cookie&#x27;, [
-      accessTokenCookie,
-      refreshTokenCookie.cookie,
-    ]);
-    user.password &#x3D; undefined;
-    return user;
-  }
-
-  @UseGuards(JwtRefreshGuard)
-  @Get(&#x27;refresh&#x27;)
-  refresh(@Req() request: RequestWithUser) {
-    const accessTokenCookie &#x3D;
-      this.authenticationService.getCookieWithJwtAccessToken(request.user.id);
-
-    request.res.setHeader(&#x27;Set-Cookie&#x27;, accessTokenCookie);
-    return request.user;
-  }
-
-  @UseGuards(JwtAuthenticationGuard)
-  @HttpCode(200)
-  @Post(&#x27;logout&#x27;)
-  async logOut(@Req() request: RequestWithUser) {
-    await this.usersService.removeRefreshToken(request.user.id);
-
-    request.res.setHeader(
-      &#x27;Set-Cookie&#x27;,
-      this.authenticationService.getCookiesForLogOut(),
-    );
-  }
-
-  @UseGuards(JwtAuthenticationGuard)
   @Get()
-  authenticate(@Req() request: RequestWithUser) {
-    const user &#x3D; request.user;
-    user.password &#x3D; undefined;
-    return user;
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  async getAllUserAddresses(@Req() { user }: RequestWithUser) {
+    return this.usersAddressesService.getUserAddresses(user.id);
+  }
+
+  @Get(&#x27;/:addressId&#x27;)
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  async getUserAddressById(
+    @Param(&#x27;addressId&#x27;, ParseIntPipe) addressId: number,
+  ) {
+    return this.usersAddressesService.getUserAddressById(addressId);
+  }
+
+  @Post()
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  async addUserAddress(
+    @Req() { user }: RequestWithUser,
+    @Body() addressData: AddUserAddressDto,
+  ) {
+    return this.usersAddressesService.addUserAddress(user.id, addressData);
+  }
+
+  @Patch(&#x27;/:addressId&#x27;)
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  async updateUserAddress(
+    @Req() { user }: RequestWithUser,
+    @Param(&#x27;addressId&#x27;, ParseIntPipe) addressId: number,
+    @Body() addressData: UpdateUserAddressDto,
+  ) {
+    return this.usersAddressesService.updateUserAddress(
+      user.id,
+      addressId,
+      addressData,
+    );
+  }
+
+  @Delete(&#x27;/:addressId&#x27;)
+  @UseGuards(EmailConfirmationGuard)
+  @UseGuards(JwtAuthenticationGuard)
+  async removeUserAddress(
+    @Req() { user }: RequestWithUser,
+    @Param(&#x27;addressId&#x27;, ParseIntPipe) addressId: number,
+  ) {
+    return this.usersAddressesService.removeUserAddress(user.id, addressId);
   }
 }
 </code></pre>
@@ -643,7 +677,7 @@ export class AuthenticationController {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationController.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersAddressesController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

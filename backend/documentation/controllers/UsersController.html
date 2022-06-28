@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/users/users.controller.ts</code>
+            <code>src/users/controllers/users.controller.ts</code>
         </p>
 
             <p class="comment">
@@ -85,19 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#addUserAddress" >addUserAddress</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#getAllUsers" >getAllUsers</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#removeUserAddress" >removeUserAddress</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#updateUserAddress" >updateUserAddress</a>
                             </li>
                         </ul>
                     </td>
@@ -116,95 +104,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="addUserAddress"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>addUserAddress</b></span>
-                        <a href="#addUserAddress"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>addUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressData: <a href="../classes/AddUserAddressDto.html" target="_self">AddUserAddressDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post(&#x27;/add-user-address&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/users/users.controller.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>addressData</td>
-                                    <td>
-                                                <code><a href="../classes/AddUserAddressDto.html" target="_self" >AddUserAddressDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -228,14 +127,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/getAllUsers&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
+                    <code>@Get()<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/users/users.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/users/controllers/users.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -246,196 +145,6 @@
                     <div class="io-description">
                         <b>Returns : </b>    <code>unknown</code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="removeUserAddress"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>removeUserAddress</b></span>
-                        <a href="#removeUserAddress"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Delete(&#x27;/remove-user-address/:addressId&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/users/users.controller.ts:55</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>addressId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateUserAddress"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>updateUserAddress</b></span>
-                        <a href="#updateUserAddress"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateUserAddress(undefined: <a href="../interfaces/RequestWithUser.html" target="_self">RequestWithUser</a>, addressId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, addressData: <a href="../classes/UpdateUserAddressDto.html" target="_self">UpdateUserAddressDto</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Patch(&#x27;/update-user-address/:addressId&#x27;)<br />@UseGuards(EmailConfirmationGuard)<br />@UseGuards(JwtAuthenticationGuard)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/users/users.controller.ts:44</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                                <code><a href="../interfaces/RequestWithUser.html" target="_self" >RequestWithUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>addressId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>addressData</td>
-                                    <td>
-                                                <code><a href="../classes/UpdateUserAddressDto.html" target="_self" >UpdateUserAddressDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -445,65 +154,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Controller,
-  Get,
-  Post,
-  Delete,
-  UseGuards,
-  Body,
-  Req,
-  Param,
-  ParseIntPipe,
-  Patch,
-} from &#x27;@nestjs/common&#x27;;
-import { UsersService } from &#x27;./users.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, UseGuards } from &#x27;@nestjs/common&#x27;;
+import { UsersService, UsersAddressesService } from &#x27;../services&#x27;;
 import { JwtAuthenticationGuard } from &#x27;src/authentication/guards/jwt-authentication.guard&#x27;;
 import { EmailConfirmationGuard } from &#x27;src/authentication/guards/email-confirmation.guard&#x27;;
-import { RequestWithUser } from &#x27;src/authentication/types/request-with-user.types&#x27;;
-import { AddUserAddressDto } from &#x27;./dto/add-user-address.dto&#x27;;
-import { UpdateUserAddressDto } from &#x27;./dto/update-user-address.dto&#x27;;
 
 @Controller(&#x27;users&#x27;)
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly usersAddressesService: UsersAddressesService,
+  ) {}
 
-  @Get(&#x27;/getAllUsers&#x27;)
+  @Get()
   @UseGuards(EmailConfirmationGuard)
   @UseGuards(JwtAuthenticationGuard)
   async getAllUsers() {
     return &#x27;This action returns all users&#x27;;
-  }
-
-  @Post(&#x27;/add-user-address&#x27;)
-  @UseGuards(EmailConfirmationGuard)
-  @UseGuards(JwtAuthenticationGuard)
-  async addUserAddress(
-    @Req() { user }: RequestWithUser,
-    @Body() addressData: AddUserAddressDto,
-  ) {
-    return this.usersService.addUserAddress(user.id, addressData);
-  }
-
-  @Patch(&#x27;/update-user-address/:addressId&#x27;)
-  @UseGuards(EmailConfirmationGuard)
-  @UseGuards(JwtAuthenticationGuard)
-  async updateUserAddress(
-    @Req() { user }: RequestWithUser,
-    @Param(&#x27;addressId&#x27;, ParseIntPipe) addressId: number,
-    @Body() addressData: UpdateUserAddressDto,
-  ) {
-    return this.usersService.updateUserAddress(user.id, addressId, addressData);
-  }
-
-  @Delete(&#x27;/remove-user-address/:addressId&#x27;)
-  @UseGuards(EmailConfirmationGuard)
-  @UseGuards(JwtAuthenticationGuard)
-  async removeUserAddress(
-    @Req() { user }: RequestWithUser,
-    @Param(&#x27;addressId&#x27;, ParseIntPipe) addressId: number,
-  ) {
-    return this.usersService.removeUserAddress(user.id, addressId);
   }
 }
 </code></pre>

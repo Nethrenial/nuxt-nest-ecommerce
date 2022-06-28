@@ -22,7 +22,6 @@ enum OrderStatus {
   Delivered
 }
 
-
 model User {
   id                        Int                    @id @default(autoincrement())
   email                     String                 @unique
@@ -61,44 +60,47 @@ model UserAddress {
 }
 
 model Shop {
-  id                 Int                   @id @default(autoincrement())
-  name               String                @unique
-  description        String?
-  coverPhoto         String
-  logo               String?
-  createdAt          DateTime              @default(now())
-  updatedAt          DateTime              @default(now())
-  contactEmail       String                @unique
-  contactPhone       String                @unique
-  User               User                  @relation(fields: [userId], references: [id])
-  userId             Int
-  physicalAddress    ShopPhysicalAddress[]
-  Product            Product[]
-  reviews            UserShopReview[]
-  shopCoupons        ShopCoupon[]
-  favoriteShops      UserFavoriteShop[]
-  messages           Message[]
+  id                Int                   @id @default(autoincrement())
+  name              String                @unique
+  description       String?
+  coverPhoto        String
+  logo              String?
+  businessDocuments String[]
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @default(now())
+  contactEmail      String                @unique
+  contactPhone      String                @unique
+  User              User                  @relation(fields: [userId], references: [id])
+  userId            Int
+  physicalAddress   ShopPhysicalAddress[]
+  Product           Product[]
+  reviews           UserShopReview[]
+  shopCoupons       ShopCoupon[]
+  favoriteShops     UserFavoriteShop[]
+  messages          Message[]
 }
 
 /// this should have the columns of a Shop
 model ShopOpenRequest {
-  id                 Int      @id @default(autoincrement())
-  name               String   @unique
-  description        String?
-  coverPhoto         String
-  logo               String?
-  businessDocuments  String[]
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @default(now())
-  contactEmail       String   @unique
-  contactPhone       String   @unique
-  User               User     @relation(fields: [userId], references: [id])
-  userId             Int
-  address            String
-  city               String
-  state              String
-  country            String
-  zip                String
+  id                Int      @id @default(autoincrement())
+  name              String   @unique
+  description       String?
+  coverPhoto        String
+  logo              String?
+  businessDocuments String[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now())
+  contactEmail      String   @unique
+  contactPhone      String   @unique
+  User              User     @relation(fields: [userId], references: [id])
+  userId            Int
+  address           String
+  city              String
+  state             String
+  country           String
+  zip               String
+  rejected          Boolean  @default(false)
+  rejectedReason    String?
 }
 
 model ShopPhysicalAddress {
@@ -249,18 +251,19 @@ model UserFavoriteShop {
 }
 
 model Message {
-  id                Int       @id @default(autoincrement())
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @default(now())
-  User              User      @relation(fields: [userId], references: [id])
-  Shop              Shop      @relation(fields: [shopId], references: [id])
+  id                Int                  @id @default(autoincrement())
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @default(now())
+  User              User                 @relation(fields: [userId], references: [id])
+  Shop              Shop                 @relation(fields: [shopId], references: [id])
   userId            Int
   shopId            Int
   senderId          Int
-  Product           Product?  @relation(fields: [attachedProductId], references: [id])
+  Product           Product?             @relation(fields: [attachedProductId], references: [id])
   attachedProductId Int?
-  seen              Boolean   @default(false)
-  replyOf           Message?  @relation("MessageReplies", fields: [replyOfId], references: [id])
+  seen              Boolean              @default(false)
+  replyOf           Message?             @relation("MessageReplies", fields: [replyOfId], references: [id])
   replyOfId         Int?
-  replies           Message[] @relation("MessageReplies")
+  replies           Message[]            @relation("MessageReplies")
 }
+

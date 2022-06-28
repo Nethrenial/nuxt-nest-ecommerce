@@ -1,4 +1,10 @@
 import { IsString, IsNotEmpty, IsEmail } from 'class-validator';
+import {
+  IsFiles,
+  IsFile,
+  HasMimeType,
+  MemoryStoredFile,
+} from 'nestjs-form-data';
 
 export class ShopOpenRequestDto {
   @IsNotEmpty()
@@ -8,6 +14,18 @@ export class ShopOpenRequestDto {
   @IsNotEmpty()
   @IsString()
   description: string;
+
+  @IsFile()
+  @HasMimeType(['image/png', 'image/jpeg', 'image/webp'])
+  coverPhoto: MemoryStoredFile;
+
+  @IsFile()
+  @HasMimeType(['image/png', 'image/jpeg', 'image/webp'])
+  logo: MemoryStoredFile;
+
+  @IsFiles()
+  @HasMimeType(['application/pdf'], { each: true })
+  businessDocuments: MemoryStoredFile[];
 
   @IsEmail()
   contactEmail: string;

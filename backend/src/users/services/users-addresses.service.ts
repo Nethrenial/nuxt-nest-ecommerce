@@ -9,7 +9,6 @@ export class UsersAddressesService {
    * The prisma client
    */
   prisma: PrismaClient;
-
   constructor() {
     this.prisma = new PrismaClient();
   }
