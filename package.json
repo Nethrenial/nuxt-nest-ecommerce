@@ -13,8 +13,7 @@
   ],
   "version": "independent",
   "scripts": {
-    "prepare": "husky install",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
