@@ -1,0 +1,35 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-text align="center" color="#555" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#ddd">
+    <mj-include path="../partials/header.mjml" />
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-text align="center">
+          <h1 align="center">Confirm your email address</h1>
+        </mj-text>
+        <mj-text align="center">
+          <h3 align="center">Paste the code below to confirmation box to confirm your email address.</h3>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="rebeccapurple">
+        <mj-column>
+          <mj-text>
+            <h1 color="white" style="letter-spacing: 2rem;">1111</h1>
+          </mj-text>
+        </mj-column>
+    </mj-section>
+    <mj-section>
+    <mj-column>
+        <mj-text align="center">
+          <h3 align="center">If this wasn't you, please ignore.</h3>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="../partials/header.mjml" />
+  </mj-body>
+</mjml>

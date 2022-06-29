@@ -1,4 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  ParseIntPipe,
+  Req,
+} from '@nestjs/common';
+import { RoleGuard } from 'src/authentication/guards/role.guard';
+import { JwtAuthenticationGuard } from 'src/authentication/guards/jwt-authentication.guard';
+import { RequestWithUser } from 'src/authentication/types/request-with-user.types';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -7,9 +21,15 @@ import { UpdateProductDto } from './dto/update-product.dto';
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
-  @Post()
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  @UseGuards(RoleGuard('Seller'))
+  @UseGuards(JwtAuthenticationGuard)
+  @Post('/:shopId')
+  addProduct(
+    @Req() { user }: RequestWithUser,
+    @Param('shopId', ParseIntPipe) shopId: number,
+    @Body() createProductDto: CreateProductDto,
+  ) {
+    return this.productsService.addProduct(user.id, shopId, createProductDto);
   }
 
   @Get()

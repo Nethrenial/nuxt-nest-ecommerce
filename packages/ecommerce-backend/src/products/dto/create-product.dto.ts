@@ -6,6 +6,7 @@ import {
   IsPositive,
   IsInt,
   IsJSON,
+  IsArray,
 } from 'class-validator';
 import {
   IsFiles,
@@ -60,4 +61,8 @@ export class CreateProductDto {
   @IsJSON()
   @IsOptional()
   specifications: string;
+
+  @IsArray()
+  @IsNumber({}, { each: true })
+  categories: number[];
 }
