@@ -2,10 +2,10 @@
   "name": "ecommerce",
   "private": true,
   "devDependencies": {
-    "commitizen": "^4.2.4",
+    "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
-    "husky": "^8.0.0",
-    "lerna": "^5.1.6"
+    "husky": "8.0.1",
+    "lerna": "5.1.6"
   },
   "workspaces": [
     "packages/*"
