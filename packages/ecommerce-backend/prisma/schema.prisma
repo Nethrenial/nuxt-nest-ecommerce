@@ -1,6 +1,5 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["filterJson"]
 }
 
 datasource db {
@@ -31,7 +30,7 @@ model User {
   createdAt                 DateTime               @default(now())
   updatedAt                 DateTime               @default(now())
   currentHashedRefreshToken String?
-  roles                     Role[]
+  roles                     Role[]       
   stripeCustomerId          String?                @unique
   addresses                 UserAddress[]
   productReviews            UserProductReview[]
